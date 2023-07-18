@@ -1,11 +1,11 @@
-About oct-to-tiff
-=================
+About oct-to-tiff-feedstock
+===========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/oct-to-tiff-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/camlloyd/oct-to-tiff
 
 Package license: BSD-3-Clause
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/oct-to-tiff-feedstock/blob/main/LICENSE.txt)
 
 Summary: A command line tool for converting optical coherence tomography angiography (OCTA) data.
 
