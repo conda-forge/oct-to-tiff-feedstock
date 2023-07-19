@@ -1,5 +1,5 @@
 {% set name = "oct-to-tiff" %}
-{% set version = "0.3.0" %}
+{% set version = "0.4.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/oct_to_tiff-{{ version }}.tar.gz
-  sha256: 3e842aff08cd11f11bcee252a37a6530fde884a632551612c4f7478a8d8210cb
+  sha256: a003132d514102b2fc496594601cf6a313f746489ee466374a8324e136119ce9
 
 build:
   entry_points:
