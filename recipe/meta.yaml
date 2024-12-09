@@ -1,27 +1,29 @@
 {% set name = "oct-to-tiff" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/oct_to_tiff-{{ version }}.tar.gz
-  sha256: a003132d514102b2fc496594601cf6a313f746489ee466374a8324e136119ce9
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/oct_to_tiff-{{ version }}.tar.gz
+  sha256: 6202f44851c2b7db2785dd8f42268733b116eaa094d505c9b619f500d238b06c
 
 build:
   entry_points:
     - oct-to-tiff = oct_to_tiff.cli:main
   noarch: python
-  script: {{ PYTHON }} -m pip install . -vv
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   number: 0
 
 requirements:
   host:
-    - python >=3.7
+    - python {{ python_min }}
+    - setuptools >=61.0
     - pip
   run:
-    - python >=3.7
+    - python >={{ python_min }}
+    - defusedxml
     - numpy
     - tifffile
 
