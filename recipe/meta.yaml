@@ -19,12 +19,13 @@ build:
 requirements:
   host:
     - python {{ python_min }}
-    - setuptools >=61.0
+    - setuptools >=77.0.3
     - pip
   run:
     - python >={{ python_min }}
     - defusedxml
     - numpy
+    - roifile
     - tifffile
 
 test:
