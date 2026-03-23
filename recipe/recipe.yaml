@@ -1,0 +1,55 @@
+schema_version: 1
+
+context:
+  name: oct-to-tiff
+  version: "0.6.2"
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/oct_to_tiff-${{ version }}.tar.gz
+  sha256: c284345ae9658af8a8fe20d676ec8720181d09fdde125ddeaca0838e1e37ab28
+
+build:
+  number: 1
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - oct-to-tiff = oct_to_tiff.cli:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - uv-build >=0.9.26,<0.10.0
+    - pip
+  run:
+    - python >=${{ python_min }}
+    - defusedxml
+    - numpy
+    - roifile
+    - tifffile
+
+tests:
+  - python:
+      imports:
+        - oct_to_tiff
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - pip
+    script:
+      - oct-to-tiff --help
+
+about:
+  summary: A command line tool for converting optical coherence tomography angiography (OCTA) data.
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  homepage: https://github.com/camlloyd/oct-to-tiff
+
+extra:
+  recipe-maintainers:
+    - camlloyd
