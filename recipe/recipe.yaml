@@ -2,7 +2,7 @@ schema_version: 1
 
 context:
   name: oct-to-tiff
-  version: "0.6.3"
+  version: "0.6.4"
   python_min: "3.11"
 
 package:
@@ -11,10 +11,10 @@ package:
 
 source:
   url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/oct_to_tiff-${{ version }}.tar.gz
-  sha256: 28523d8792e7cc9c5668074abb92c8e0378be78f473bca41d8f4ab3e59a2eeb0
+  sha256: d290dc49b9ec017e335474fc664bcecc684bae2a7198ccb44b30dc079767abf8
 
 build:
-  number: 1
+  number: 0
   noarch: python
   script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
   python:
